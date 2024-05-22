@@ -13,9 +13,17 @@ flatten([1, [2, [3]]]); // [1, 2, 3]
 ***********************************************************************/
 
 function flatten(arr) {
-  // Your code here 
+  // Your code here
+  if(arr.length === 0){
+    return [];
+  }
+  if(Array.isArray(arr[0])){
+    return flatten(arr[0]).concat(flatten(arr.slice(1)));
+  }else{
+    return [arr[0]].concat(flatten(arr.slice(1)));
+  }
+
 }
-  
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 module.exports = flatten;
-  
